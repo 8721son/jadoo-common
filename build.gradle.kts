@@ -40,8 +40,8 @@ plugins {
 publishing {
     repositories {
         maven {
-            name = "common"
-            url = uri("https://maven.pkg.github.com/8721son/common")
+            name = "jadoo-common"
+            url = uri("https://maven.pkg.github.com/8721son/jadoo-common")
             credentials {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
@@ -55,7 +55,7 @@ publishing {
     }
 }
 group = "com.github.8721son"
-version = "1.2"
+version = "1.0"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 val jar: Jar by tasks
