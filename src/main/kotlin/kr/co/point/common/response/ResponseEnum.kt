@@ -113,6 +113,9 @@ enum class ResponseEnum (var code: Int, var message: String?) {
     CAMPAIGN_SEARCH_SELECT_SUCCESS(200, "캠패인 검색이 완료되었습니다."),
     CAMPAIGN_DETAIL_SELECT_FAIL(-200, "캠패인 상세내역이 없습니다."),
 
+    CATEGORY_LIST_SELECT_SUCCESS(200, "카테고리 목록 조회에 성공했습니다."),
+    RANK_SELECT_SUCCESS(200, "랭킹 조회에 성공했습니다."),
+
     FOUNDATION_LIST_SUCCESS(200, "후원사 목록 조회에 성공했습니다."),
     FOUNDATION_DETAIL_SUCCESS(200, "후원사 상세 조회에 성공했습니다."),
     FOUNDATION_CAMPAIGN_SUCCESS(200, "후원사 관련 캠페인 조회가 완료되었습니다."),

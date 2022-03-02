@@ -20,7 +20,7 @@ data class CoupangCrawling(
 
     @OneToMany(mappedBy = "crawling")
     @Builder.Default
-    var productList: List<CoupangCrawlingProduct> = ArrayList(),
+    var productList: MutableList<CoupangCrawlingProduct> = ArrayList(),
 
     var orderDateTime: LocalDateTime? = null,
     var orderId: Long? = null,

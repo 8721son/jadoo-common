@@ -1,5 +1,6 @@
 package kr.co.point.common.entity.coupang.api
 
+import lombok.Builder
 import org.hibernate.Hibernate
 import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime
@@ -16,24 +17,10 @@ data class CoupangApi(
     var orderId /*주문 번호*/: Long? = null,
     var price: Int? = null,
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "coupang")
-    var products: List<CoupangApiProduct>? = null,
+    @OneToMany(mappedBy = "coupang")
+    @Builder.Default
+    var products: MutableList<CoupangApiProduct> = ArrayList(),
 
     @CreationTimestamp
     var createDate: LocalDateTime? = null
-) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false
-        other as CoupangApi
-
-        return idx != null && idx == other.idx
-    }
-
-    override fun hashCode(): Int = javaClass.hashCode()
-
-    @Override
-    override fun toString(): String {
-        return this::class.simpleName + "(idx = $idx , date = $date , trackingCode = $trackingCode , orderId = $orderId , price = $price , createDate = $createDate )"
-    }
-}
+)

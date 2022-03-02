@@ -1,10 +1,9 @@
 package kr.co.point.common.entity.donation
 
-import kr.co.point.common.dto.donation.response.CampaignCurrentDTO
-import kr.co.point.common.dto.donation.response.CampaignDTO
-import kr.co.point.common.dto.donation.response.CampaignDetailDTO
+import kr.co.point.common.dto.donation.v1.response.CampaignCurrentDTO
+import kr.co.point.common.dto.donation.v1.response.CampaignDTO
+import kr.co.point.common.dto.donation.v1.response.CampaignDetailDTO
 import kr.co.point.common.entity.file.File
-import kr.co.point.common.entity.talent.Category
 import kr.co.point.common.enum_package.type.ContentType
 import kr.co.point.common.enum_package.type.FoundationFileType
 import kr.co.point.common.util.getLocalDateToString
@@ -17,46 +16,46 @@ import javax.persistence.*
 @Entity
 data class Campaign(
 
-        @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         var idx: Int? = null,
 
-        @OneToOne(targetEntity = File::class)
+    @OneToOne(targetEntity = File::class)
         @JoinColumn(name = "photo_idx", referencedColumnName = "idx")
         var photo: File = File(),
 
-        var title: String = "",
+    var title: String = "",
 
-        @ManyToOne(targetEntity = Foundation::class)
+    @ManyToOne(targetEntity = Foundation::class)
         @JoinColumn(name = "company_idx", referencedColumnName = "idx")
         var company: Foundation = Foundation(),
 
-        @OneToOne(targetEntity = File::class)
+    @OneToOne(targetEntity = File::class)
         @JoinColumn(name = "detail_idx", referencedColumnName = "idx")
         var detail: File = File(),
 
-        var introduce: String = "",
-        var brix: Int = 0,
-        var currentBrix: Int = 0,
-        var startDate: LocalDateTime? = null,
-        var endDate: LocalDateTime? = null,
-        var content: String = "",
+    var introduce: String = "",
+    var brix: Int = 0,
+    var currentBrix: Int = 0,
+    var startDate: LocalDateTime? = null,
+    var endDate: LocalDateTime? = null,
+    var content: String = "",
 
-        var adminEndYn: String = "N",
+    var adminEndYn: String = "N",
 
-        @ManyToOne(targetEntity = Category::class)
+    @ManyToOne(targetEntity = Category::class)
         @JoinColumn(name = "category_idx", referencedColumnName = "idx")
         var category: Category = Category(),
 
-        @OneToMany(fetch = FetchType.EAGER, mappedBy = "campaign", cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "campaign", cascade = [CascadeType.ALL], orphanRemoval = true)
         var campaignTags: MutableList<CampaignTag> = ArrayList(),
 
-        @CreationTimestamp
+    @CreationTimestamp
         var createDate: LocalDateTime = LocalDateTime.now(),
 
-        @UpdateTimestamp
+    @UpdateTimestamp
         var updateDate: LocalDateTime? = null,
 
-        @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
         var contentType: ContentType = ContentType.IMAGE
 
 ) {
@@ -121,7 +120,8 @@ data class Campaign(
                         brix,
                         currentBrix,
                         campaignTags.map { donationTag -> donationTag.tag.toTagDTO() },
-                        end
+                        end,
+                        category.toCampaignCategoryDTO()
                 )
         }
 

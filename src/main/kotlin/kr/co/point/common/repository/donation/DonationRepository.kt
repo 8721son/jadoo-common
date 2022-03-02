@@ -1,7 +1,9 @@
 package kr.co.point.common.repository.donation
 
+import kr.co.point.common.dto.donation.v1.request.RankDTO
 import kr.co.point.common.entity.donation.Donation
 import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
 @Repository

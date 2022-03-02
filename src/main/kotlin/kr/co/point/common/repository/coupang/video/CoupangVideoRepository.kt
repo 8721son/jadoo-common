@@ -9,6 +9,6 @@ import java.util.*
 
 @Repository
 interface CoupangVideoRepository : JpaRepository<CoupangVideo, Int> {
-    fun findByDeleteYnAndShowYn(pageable: Pageable, deleteYn: String, showYn: String): Page<CoupangVideo>
+    fun findByDeleteYnAndShowYnOrderByCreateDateDesc(pageable: Pageable, deleteYn: String, showYn: String): Page<CoupangVideo>
     fun findTopByDeleteYnAndShowYnOrderByCreateDateDesc(deleteYn: String, showYn: String): Optional<CoupangVideo>
 }

@@ -14,7 +14,7 @@ data class CoupangApiProduct(
 
     @ManyToOne(targetEntity = CoupangApi::class)
     @JoinColumn(name = "coupang_idx", referencedColumnName = "idx")
-    var coupang: CoupangApi? = null,
+    var coupang: CoupangApi = CoupangApi(),
 
     var subId /*채널 아이디*/: String? = null,
 

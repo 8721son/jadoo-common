@@ -2,7 +2,7 @@ package kr.co.point.common.dto.talent.response
 
 import kr.co.point.common.entity.file.File
 import kr.co.point.common.entity.search.TagCode
-import kr.co.point.common.entity.talent.Category
+import kr.co.point.common.entity.donation.Category
 import kr.co.point.common.entity.talent.TalentComment
 import java.time.LocalDateTime
 

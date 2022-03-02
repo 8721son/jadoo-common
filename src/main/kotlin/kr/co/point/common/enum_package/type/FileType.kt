@@ -7,4 +7,7 @@ enum class FileType(val fileCategoryName: String) {
     COUPANG("쿠팡"),
     DONATION("기부"),
     INTRODUCE("소개"),
+    SNS("SNS"),
+    FOUNDATION("후원사"),
+    CATEGORY("카테고리")
 }

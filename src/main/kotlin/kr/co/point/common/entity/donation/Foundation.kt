@@ -1,8 +1,7 @@
 package kr.co.point.common.entity.donation
 
-import kr.co.point.common.dto.donation.response.FoundationDetailDTO
-import kr.co.point.common.dto.donation.response.FoundationFileDTO
-import kr.co.point.common.dto.donation.response.FoundationListDTO
+import kr.co.point.common.dto.donation.v1.response.FoundationDetailDTO
+import kr.co.point.common.dto.donation.v1.response.FoundationListDTO
 import kr.co.point.common.entity.file.File
 import kr.co.point.common.enum_package.type.FoundationFileType
 import org.hibernate.annotations.CreationTimestamp

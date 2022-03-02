@@ -27,7 +27,7 @@ data class CoupangCrawlingProduct(
 
     @ManyToOne
     @JoinColumn(name = "crawling_idx")
-    var crawling: CoupangCrawling? = null,
+    var crawling: CoupangCrawling = CoupangCrawling(),
 
     @CreationTimestamp
     private val createDate: LocalDateTime? = null

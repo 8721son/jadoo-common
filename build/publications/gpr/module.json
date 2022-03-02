@@ -3,14 +3,14 @@
   "component": {
     "group": "com.github.8721son",
     "module": "jadoo-common",
-    "version": "1.0",
+    "version": "1.1",
     "attributes": {
       "org.gradle.status": "release"
     }
   },
   "createdBy": {
     "gradle": {
-      "version": "7.1"
+      "version": "7.3.1"
     }
   },
   "variants": [
@@ -27,13 +27,13 @@
       },
       "files": [
         {
-          "name": "jadoo-common-1.0.jar",
-          "url": "jadoo-common-1.0.jar",
-          "size": 566781,
-          "sha512": "4430423d470948efbb83ba3e0a5613ca06d676160ab60efa74a86e7087684abeb69a273c15fc1616449df9afffe5311ee6cc76fac53f35a063acaeb2a9c95b89",
-          "sha256": "0405881d240103eaf4f427ae37c78e9dc2fe3ff83e5857d163ccdf2898630f7d",
-          "sha1": "6f2dca7b3c6f6087a7873436e7891967dde3ef62",
-          "md5": "a981991aa572f8fd63ea106bffd92907"
+          "name": "jadoo-common-1.1.jar",
+          "url": "jadoo-common-1.1.jar",
+          "size": 630780,
+          "sha512": "de3ba14fec585c895b0d66be1e4967e1d7796c0932b86358a4c6ee86bfb048c86b7ba537a18ff0289c7e6796ac2e5342945db1bd27d86d8c17c864c9aabf2e81",
+          "sha256": "cba39635cb355e54127c8c0986cad802f0d1caea7f4ef1cff6a2252660c6b550",
+          "sha1": "f9692779be84d7f8b3ebfdc6cea746794b5419f6",
+          "md5": "bb8fc37b50e1f2d28b8c8ef3dc471982"
         }
       ]
     },
@@ -130,13 +130,13 @@
       ],
       "files": [
         {
-          "name": "jadoo-common-1.0.jar",
-          "url": "jadoo-common-1.0.jar",
-          "size": 566781,
-          "sha512": "4430423d470948efbb83ba3e0a5613ca06d676160ab60efa74a86e7087684abeb69a273c15fc1616449df9afffe5311ee6cc76fac53f35a063acaeb2a9c95b89",
-          "sha256": "0405881d240103eaf4f427ae37c78e9dc2fe3ff83e5857d163ccdf2898630f7d",
-          "sha1": "6f2dca7b3c6f6087a7873436e7891967dde3ef62",
-          "md5": "a981991aa572f8fd63ea106bffd92907"
+          "name": "jadoo-common-1.1.jar",
+          "url": "jadoo-common-1.1.jar",
+          "size": 630780,
+          "sha512": "de3ba14fec585c895b0d66be1e4967e1d7796c0932b86358a4c6ee86bfb048c86b7ba537a18ff0289c7e6796ac2e5342945db1bd27d86d8c17c864c9aabf2e81",
+          "sha256": "cba39635cb355e54127c8c0986cad802f0d1caea7f4ef1cff6a2252660c6b550",
+          "sha1": "f9692779be84d7f8b3ebfdc6cea746794b5419f6",
+          "md5": "bb8fc37b50e1f2d28b8c8ef3dc471982"
         }
       ]
     }

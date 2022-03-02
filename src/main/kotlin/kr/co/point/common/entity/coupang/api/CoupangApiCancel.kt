@@ -47,19 +47,4 @@ data class CoupangApiCancel(
     @CreationTimestamp
     private val createDate: LocalDateTime? = null,
 
-    ) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false
-        other as CoupangApiCancel
-
-        return idx != null && idx == other.idx
-    }
-
-    override fun hashCode(): Int = javaClass.hashCode()
-
-    @Override
-    override fun toString(): String {
-        return this::class.simpleName + "(idx = $idx , orderDate = $orderDate , date = $date , trackingCode = $trackingCode , subId = $subId , addtag = $addtag , ctag = $ctag , productId = $productId , productName = $productName , quantity = $quantity , gmv = $gmv , commissionRate = $commissionRate , commission = $commission , createDate = $createDate )"
-    }
-}
+    )

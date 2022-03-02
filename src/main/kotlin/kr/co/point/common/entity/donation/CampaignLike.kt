@@ -1,6 +1,6 @@
 package kr.co.point.common.entity.donation
 
-import kr.co.point.common.dto.donation.response.CampaignDTO
+import kr.co.point.common.dto.donation.v1.response.CampaignDTO
 import kr.co.point.common.entity.member.Member
 import kr.co.point.common.util.getLocalDateToString
 import org.hibernate.Hibernate

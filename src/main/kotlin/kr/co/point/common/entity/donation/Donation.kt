@@ -1,6 +1,6 @@
 package kr.co.point.common.entity.donation
 
-import kr.co.point.common.dto.donation.response.DonationReponseDTO
+import kr.co.point.common.dto.donation.v1.response.DonationReponseDTO
 import kr.co.point.common.entity.member.Member
 import kr.co.point.common.entity.point.Point
 import org.hibernate.Hibernate

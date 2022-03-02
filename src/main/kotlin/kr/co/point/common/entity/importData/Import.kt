@@ -26,8 +26,9 @@ data class Import(
                                     'KT_MVNO', 'LGT_MVNO']*/,
         var certified: Boolean = true /*인증성공여부*/,
         var certified_at: String = "" /*인증처리시각 UNIX timestamp*/,
-        var foreigner: String = "" /*인증결과-외국인여부. true:외국인, false:내국인. 다날 본인인증서비스 계약시 외국인 구분기능
+        var foreigner:  Boolean = false /*인증결과-외국인여부. true:외국인, false:내국인. 다날 본인인증서비스 계약시 외국인 구분기능
                                  추가 요청을 해주셔야 사용이 가능합니다. */,
+        var foreigner_v2: Boolean = false,
         var gender: String? = null /*인증결과-성별. male:남성, female:여성*/,
         var imp_uid: String = "" /* string 타입의 아임포트 SMS본인인증처리 고유번호 */,
         var merchant_uid: String = "" /*string 타입의 가맹점 주문번호*/,
