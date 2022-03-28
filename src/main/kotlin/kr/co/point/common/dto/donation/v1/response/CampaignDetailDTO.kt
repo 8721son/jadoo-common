@@ -3,6 +3,7 @@ package kr.co.point.common.dto.donation.v1.response
 import kr.co.point.common.dto.file.response.FileDTO
 import kr.co.point.common.dto.member.response.MyDTO
 import kr.co.point.common.dto.search.response.TagDTO
+import kr.co.point.common.entity.donation.CampaignExecution
 
 data class CampaignDetailDTO(
     var idx: Int = 0,
@@ -20,5 +21,6 @@ data class CampaignDetailDTO(
     var currentBrix: Int = 0,
     var tags: List<TagDTO>,
     var contributor : List<MyDTO>? = null,
-    var endYn : String = "N"
+    var endYn : String = "N",
+    var execution: List<CampaignExecutionDTO>? = null,
  )

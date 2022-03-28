@@ -13,6 +13,7 @@ data class JoinRequestDTO(
     var password: String = "",
     var passwordConfirm: String = "",
     var profile: FileDTO? = null,
+    var profileOpenYn : String = "N",
     var oauthToken: String = "",
     var tags: List<Int>? = null,
 )

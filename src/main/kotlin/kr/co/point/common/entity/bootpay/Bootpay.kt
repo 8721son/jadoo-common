@@ -1,6 +1,7 @@
 package kr.co.point.common.entity.bootpay
 
 import kr.co.point.common.entity.member.Member
+import kr.co.point.common.enum_package.type.BootpayType
 import org.hibernate.Hibernate
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
@@ -17,6 +18,7 @@ data class Bootpay(
         @JoinColumn(name = "member_idx", referencedColumnName = "idx")
         var member: Member = Member(),
 
+        var type : BootpayType = BootpayType.BRIX,
         var price: Int = 0,
         var receiptId: String = "",
         var orderId: String = "",
@@ -36,5 +38,7 @@ data class Bootpay(
         @CreationTimestamp
         var createDate: LocalDateTime? = null,
         @UpdateTimestamp
-        var updateDate: LocalDateTime? = null
+        var updateDate: LocalDateTime? = null,
+
+        var expiredDate: LocalDateTime? = null
 )

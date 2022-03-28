@@ -13,6 +13,6 @@ import java.time.Month
 interface PointRepository : JpaRepository<Point, Int> {
     fun findByMemberEmail(member_email: String): List<Point>
     fun findByMember_EmailAndCreateDateAfter(member_email: String, date : LocalDateTime) : List<Point>
-    fun findByMemberEmailAndPointType(member_email: String,pointType : PointType): List<Point>
+    fun findByMemberEmailAndPointTypeIn(member_email: String,pointType : List<PointType>): List<Point>
     fun findByMemberEmailAndPointTypeOrderByCreateDateDesc(member_email: String,pointType : PointType,pageable: Pageable): Page<Point>
 }

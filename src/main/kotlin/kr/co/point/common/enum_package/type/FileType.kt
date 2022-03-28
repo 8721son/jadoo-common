@@ -9,5 +9,7 @@ enum class FileType(val fileCategoryName: String) {
     INTRODUCE("소개"),
     SNS("SNS"),
     FOUNDATION("후원사"),
-    CATEGORY("카테고리")
+    CATEGORY("카테고리"),
+    PARTNERS("파트너스"),
+    REVIEW("리뷰")
 }

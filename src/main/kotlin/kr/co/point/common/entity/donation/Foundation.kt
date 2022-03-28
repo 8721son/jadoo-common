@@ -2,6 +2,7 @@ package kr.co.point.common.entity.donation
 
 import kr.co.point.common.dto.donation.v1.response.FoundationDetailDTO
 import kr.co.point.common.dto.donation.v1.response.FoundationListDTO
+import kr.co.point.common.dto.search.response.TagDTO
 import kr.co.point.common.entity.file.File
 import kr.co.point.common.enum_package.type.FoundationFileType
 import org.hibernate.annotations.CreationTimestamp
@@ -23,9 +24,6 @@ data class Foundation(
         @OneToMany(mappedBy = "foundation", cascade = [CascadeType.ALL], orphanRemoval = true)
         var file: MutableList<FoundationFile>? = null,
 
-        @OneToMany(mappedBy = "foundation", cascade = [CascadeType.ALL], orphanRemoval = true)
-        var tags: MutableList<FoundationTag>? = null,
-
         @CreationTimestamp
         var createDate: LocalDateTime = LocalDateTime.now(),
 
@@ -46,7 +44,7 @@ data class Foundation(
                 )
         }
 
-        fun toDetailDTO() : FoundationDetailDTO {
+        fun toDetailDTO(tags : List<TagDTO>?) : FoundationDetailDTO {
                 var detailFile = FoundationFile()
                 var logoFile = FoundationFile()
                 val snsFiles = ArrayList<FoundationFile>()
@@ -63,9 +61,10 @@ data class Foundation(
                 }
 
                 return FoundationDetailDTO(
+                        idx!!,
                         name,
                         official,
-                        tags!!.stream().map(FoundationTag::toDTO).toList(),
+                        tags,
                         snsFiles.stream().map(FoundationFile::toDTO).toList(),
                         logoFile.toDTO(),
                         detailFile.toDTO()

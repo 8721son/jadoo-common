@@ -8,8 +8,8 @@ data class MyDTO(
     var idx: Int = 0,
     var nickname: String = "",
 
-    var profileImg: FileDTO = FileDTO(),
+    var profileImg: FileDTO? = FileDTO(),
     var brix: Int = 0,
     var birth: String = "",
-    var friends: CommonInfoFriendDTO = CommonInfoFriendDTO(),
+    var friends: CommonInfoFriendDTO? = CommonInfoFriendDTO(),
     )

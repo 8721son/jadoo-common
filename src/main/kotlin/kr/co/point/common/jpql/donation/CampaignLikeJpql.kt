@@ -46,6 +46,22 @@ class CampaignLikeJpql(private val em: EntityManager) {
             conditionList.add(category)
         }
 
+        val tagIdx : MutableList<Int> = ArrayList()
+
+        if(campaignFilterRequestDTO.tags!!.isNotEmpty()){
+            campaignFilterRequestDTO.tags!!.forEach { i ->
+                tagIdx.add(i.idx)
+            }
+        }
+
+        if(tagIdx.isNotEmpty()){
+            var tagIdxToString = ""
+            tagIdxToString = tagIdx.toString().replace("[","(")
+            tagIdxToString = tagIdxToString.replace("]",")")
+            val tag = "t.tag.idx IN $tagIdxToString"
+            conditionList.add(tag)
+        }
+
 
         // list size > 0
         // where 값 + and
@@ -61,10 +77,10 @@ class CampaignLikeJpql(private val em: EntityManager) {
 
         val order : String = if(campaignFilterRequestDTO.start == "오래된 순") "desc" else "asc"
 
-        val query = "select c from CampaignLike c join CampaignTag t on c.campaign.idx = t.campaign.idx $condition order by c.campaign.startDate $order"
+        val query = "select distinct c from CampaignLike c join CampaignTag t on c.campaign.idx = t.campaign.idx $condition order by c.campaign.startDate $order"
 
 
-        val createTotalQuery = em.createQuery("select count(c) from CampaignLike c $condition", Long::class.javaObjectType);
+        val createTotalQuery = em.createQuery("select distinct count(c) from CampaignLike c join CampaignTag t on c.campaign.idx = t.campaign.idx $condition", Long::class.javaObjectType);
         val total = createTotalQuery.singleResult
 
         val createQuery = em.createQuery(query, CampaignLike::class.java)

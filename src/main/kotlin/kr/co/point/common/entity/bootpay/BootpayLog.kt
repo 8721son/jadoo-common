@@ -3,6 +3,7 @@ package kr.co.point.common.entity.bootpay
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import kr.co.point.common.dto.bootpay.response.VbankDTO
 import kr.co.point.common.entity.member.Member
+import kr.co.point.common.enum_package.type.BootpayType
 import kr.co.point.common.util.dotNumberStrNormal
 import kr.co.point.common.util.getLocalDateTimeToVbank
 import kr.co.point.common.util.stringToLocalDateTime
@@ -22,6 +23,7 @@ data class BootpayLog(
         var price: Int = 0,
         var receiptId: String = "",
         var orderId: String = "",
+        var type : BootpayType = BootpayType.BRIX,
         var name: String = "",
         var unit: String = "",
         var pg: String = "",

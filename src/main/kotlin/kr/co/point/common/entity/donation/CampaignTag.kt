@@ -10,21 +10,21 @@ import javax.persistence.*
 @Entity
 data class CampaignTag(
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         var idx: Int? = null,
 
-    @ManyToOne(targetEntity = TagCode::class)
+        @ManyToOne(targetEntity = TagCode::class)
         @JoinColumn(name = "tag_idx", referencedColumnName = "idx")
         var tag: TagCode = TagCode(),
 
-    @ManyToOne(targetEntity = Campaign::class)
+        @ManyToOne(targetEntity = Campaign::class)
         @JoinColumn(name = "campaign_idx", referencedColumnName = "idx")
         var campaign: Campaign = Campaign(),
 
-    @CreationTimestamp
+        @CreationTimestamp
         var createDate: LocalDateTime = LocalDateTime.now(),
 
-    @UpdateTimestamp
+        @UpdateTimestamp
         var updateDate: LocalDateTime? = null,
 ) {
 

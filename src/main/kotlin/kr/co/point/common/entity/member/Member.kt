@@ -56,11 +56,11 @@ class Member {
         @OneToOne(targetEntity = File::class)
         @JoinColumn(name = "profile_idx", referencedColumnName = "idx")
         var profileImg: File? = null
+        var profileOpenYn : String = "N"
 
         var oauthGoogle: String? = null
         var oauthKakao: String? = null
         var oauthApple: String? = null
-
         // Enum Type 변경
         // Sanction 제재
         // Delete 회원탈퇴
@@ -118,6 +118,7 @@ class Member {
                 totalPoint = 0
                 status = MemberStatus.NORMAL
                 role = RoleType.MEMBER
+                profileOpenYn = joinRequestDTO.profileOpenYn
                 createDate = LocalDateTime.now()
                 iamportUid = joinRequestDTO.iamportUid
                 oauthGoogle = ""

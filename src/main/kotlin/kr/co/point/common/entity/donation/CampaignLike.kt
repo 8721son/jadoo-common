@@ -13,21 +13,21 @@ import javax.persistence.*
 @Entity
 data class CampaignLike(
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         var idx: Int? = null,
 
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Member::class)
+        @ManyToOne(fetch = FetchType.EAGER, targetEntity = Member::class)
         @JoinColumn(name = "member_idx", referencedColumnName = "idx")
         var member: Member = Member(),
 
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Campaign::class)
+        @ManyToOne(fetch = FetchType.EAGER, targetEntity = Campaign::class)
         @JoinColumn(name = "campaign_idx", referencedColumnName = "idx")
         var campaign: Campaign = Campaign(),
 
-    @CreationTimestamp
+        @CreationTimestamp
         var createDate: LocalDateTime = LocalDateTime.now(),
 
-    @UpdateTimestamp
+        @UpdateTimestamp
         var updateDate: LocalDateTime? = null,
 ) {
 

@@ -227,4 +227,80 @@ class CampaignJpql(private val em: EntityManager) {
         return PageImpl(createQuery.resultList, pageable,total)
     }
 
+
+    fun searchByCompanyIdx(
+        pageable: Pageable,
+        companyIdx : Int,
+        campaignFilterRequestDTO: CampaignFilterV2RequestDTO,
+    ) : Page<Campaign>{
+
+
+        var condition = ""
+
+        // list
+
+        val conditionList : MutableList<String> = ArrayList()
+
+        // filter 1
+        // list add  now()< c.startDate
+        val contain : String = when (campaignFilterRequestDTO.status) {
+            "모금 예정" -> "now()< c.campaign.startDate"
+            "모금 중"   -> "now()> c.campaign.startDate and c.campaign.endDate > now()"
+            "모금 마감" -> "c.campaign.endDate < now()"
+            else       -> ""
+        }
+
+        if(contain != ""){
+            conditionList.add(contain)
+        }
+
+        // filter 2
+        // list add
+        val categoryIdx : Int = campaignFilterRequestDTO.category
+        var category = ""
+        if(categoryIdx!=0){
+            category = "c.campaign.category.idx=$categoryIdx"
+            conditionList.add(category)
+        }
+        // filter 3
+        // list add
+        val tagIdx : MutableList<Int> = ArrayList()
+
+        if(campaignFilterRequestDTO.tags!!.isNotEmpty()){
+            campaignFilterRequestDTO.tags!!.forEach { i ->
+                tagIdx.add(i.idx)
+            }
+        }
+
+        if(tagIdx.isNotEmpty()){
+            var tagIdxToString = ""
+            tagIdxToString = tagIdx.toString().replace("[","(")
+            tagIdxToString = tagIdxToString.replace("]",")")
+            val tag = "c.tag.idx IN $tagIdxToString"
+            conditionList.add(tag)
+        }
+
+        condition += "where c.campaign.company.idx = $companyIdx"
+
+        if(conditionList.isNotEmpty()){
+            for(i in 1..conditionList.size){
+                condition += " and "
+                condition += conditionList[i-1]
+            }
+        }
+
+        val order : String = if(campaignFilterRequestDTO.start == "오래된 순") "desc" else "asc"
+
+        val query = "select distinct c.campaign from CampaignTag c $condition order by c.campaign.startDate $order"
+
+
+        val createTotalQuery = em.createQuery("select distinct count(c.campaign) from CampaignTag c $condition", Long::class.javaObjectType);
+        val total = createTotalQuery.singleResult
+
+        val createQuery = em.createQuery(query, Campaign::class.java)
+        createQuery.firstResult = pageable.offset.toInt()
+        createQuery.maxResults = pageable.pageSize
+
+        return PageImpl(createQuery.resultList, pageable,total)
+    }
 }

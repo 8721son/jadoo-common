@@ -8,6 +8,7 @@ import java.util.*
 @Repository
 interface MemberFriendRepository : JpaRepository<MemberFriend, Int>{
     fun findByMemberEmailAndSelectYn(member_email: String, selectYn: String): Optional<MemberFriend>
+    fun findByMember_IdxAndSelectYn(member_idx: Int, selectYn: String): Optional<MemberFriend>
 
     fun findByMemberEmail(member_email: String): List<MemberFriend>
 

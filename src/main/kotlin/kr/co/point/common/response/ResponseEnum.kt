@@ -62,6 +62,8 @@ enum class ResponseEnum (var code: Int, var message: String?) {
 
     MY_BANNER_LIST_SUCCESS(200, "배너 조회를 성공했습니다."),
     MD_LIST_SUCCESS(200, "MD 상품 조회를 성공했습니다."),
+    MAGAZINE_LIST_SUCCESS(200, "매거진 조회를 성공했습니다."),
+    MAGAZINE_CATEGORY_LIST_SUCCESS(200, "매거진 카테고리 조회를 성공했습니다."),
 
     KEYWORD_LIST_SUCCESS(200, "추천 키워드 조회를 성공했습니다."),
 
@@ -104,6 +106,7 @@ enum class ResponseEnum (var code: Int, var message: String?) {
     CAMPAIGN_LIKE_SAVE_SUCCESS(200, "관심 캠패인이 등록되었습니다."),
     CAMPAIGN_LIKE_CALCEL_SUCCESS(200, "관심 캠패인이 취소가 완료되었습니다."),
     CAMPAIGN_LIKE_SELECT_SUCCESS(200, "관심 캠패인 조회가 완료되었습니다."),
+    CAMPAIGN_DONATE_SELECT_SUCCESS(200, "후원한 캠패인 조회가 완료되었습니다."),
     CAMPAIGN_CURRENT_SELECT_SUCCESS(200, "진행중인 캠패인 조회가 완료되었습니다."),
     CAMPAIGN_TAG_LIKE_SELECT_SUCCESS(200, "내가 등록한 TAG와 관련된 캠패인 조회가 완료되었습니다."),
     CAMPAIGN_ALL_SELECT_SUCCESS(200, "캠패인 조회가 완료되었습니다."),
@@ -112,6 +115,7 @@ enum class ResponseEnum (var code: Int, var message: String?) {
     CAMPAIGN_TAG_SEARCH_SELECT_SUCCESS(200, "캠패인 태그 검색이 완료되었습니다."),
     CAMPAIGN_SEARCH_SELECT_SUCCESS(200, "캠패인 검색이 완료되었습니다."),
     CAMPAIGN_DETAIL_SELECT_FAIL(-200, "캠패인 상세내역이 없습니다."),
+    CAMPAIGN_CONTRIBUTOR_SELECT_SUCCESS(200, "후원자 목록 조회에 성공했습니다."),
 
     CATEGORY_LIST_SELECT_SUCCESS(200, "카테고리 목록 조회에 성공했습니다."),
     RANK_SELECT_SUCCESS(200, "랭킹 조회에 성공했습니다."),
@@ -169,6 +173,31 @@ enum class ResponseEnum (var code: Int, var message: String?) {
     TALENT_GIFT_SUCCESS(200,"브릭스 선물에 성공했습니다."),
     TALENT_GIFT_FAIL(-200,"브릭스 선물에 실패했습니다."),
 
-    CRAWLING_FAIL(0, "크롤링을 실패했습니다.");
+    PARTNERS_PURCHASE_LIST_SUCCESS(200,"구매 내역 조회에 성공했습니다."),
+    PARTNERS_CHANGE_LIST_SUCCESS(200,"교환/환불 내역 조회에 성공했습니다."),
+    PARTNERS_REVIEW_WRITE_SUCCESS(200,"리뷰 작성에 성공했습니다."),
+    PARTNERS_REVIEW_WRITE_ALREADY(200,"이미 리뷰를 작성하였습니다."),
+    PARTNERS_REVIEW_SELECT_SUCCESS(200,"리뷰 조회에 성공했습니다."),
+    PARTNERS_REVIEW_DELETE_SUCCESS(200,"리뷰 삭제에 성공했습니다."),
+    PARTNERS_REVIEW_DELETE_FAIL(-200,"리뷰 삭제에 실패했습니다."),
+    PARTNERS_LIKE_SUCCESS(200,"관심 등록에 성공했습니다."),
+    PARTNERS_LIKE_CANCEL_SUCCESS(200,"관심 등록 취소에 성공했습니다."),
+    PARTNERS_LIKE_LIST_SUCCESS(200,"관심 파트너스 조회에 성공했습니다."),
+    PARTNERS_CONFIRM_SUCCESS(200,"구매 확정에 성공했습니다."),
+
+    PARTNERS_MAIN_BANNER_SUCCESS(200,"파트너스 배너 조회에 성공했습니다."),
+    PARTNERS_MAIN_CATEGORY_SUCCESS(200,"카테고리 조회에 성공했습니다."),
+    PARTNERS_MAIN_LATEST_SUCCESS(200,"최근 본 목록 조회에 성공했습니다."),
+    PARTNERS_MAIN_POPULAR_SUCCESS(200,"인기 상품 조회에 성공했습니다."),
+    PARTNERS_MAIN_LIKE_PRODUCT_SUCCESS(200,"관심 상품 조회에 성공했습니다."),
+    PARTNERS_MAIN_LIKE_PARTNERS_SUCCESS(200,"관심 파트너스 조회에 성공했습니다."),
+    PARTNERS_CATEGORY_SEARCH_SUCCESS(200,"카테고리 조회에 성공했습니다."),
+    PARTNERS_PRODUCT_SEARCH_SUCCESS(200,"파트너스 상품 조회에 성공했습니다."),
+
+    CRAWLING_FAIL(0, "크롤링을 실패했습니다."),
+
+    ADMOB_VERIFY_SUCCESS(200, "광고 시청 검증에 성공했습니다."),
+    ADMOB_VERIFY_FAIL(-200, "광고 시청 검증에 실패했습니다."),
+    ADMOB_FAIL_LOG_SUCCESS(200, "광고 실패 로그 저장에 성공했습니다.");
 
 }

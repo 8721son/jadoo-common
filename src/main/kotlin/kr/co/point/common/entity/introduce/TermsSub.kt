@@ -2,6 +2,7 @@ package kr.co.point.common.entity.introduce
 
 import kr.co.point.common.dto.terms.TermsDTO
 import kr.co.point.common.dto.terms.TermsSubDTO
+import org.hibernate.Hibernate
 import javax.persistence.*
 
 @Entity
@@ -27,6 +28,21 @@ data class TermsSub(
         termsSubDTO.content = content
         termsSubDTO.articles = articles!!.stream().map(TermsArticle::toDTO).toList();
         return termsSubDTO
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false
+        other as TermsSub
+
+        return idx != null && idx == other.idx
+    }
+
+    override fun hashCode(): Int = javaClass.hashCode()
+
+    @Override
+    override fun toString(): String {
+        return this::class.simpleName + "(idx = $idx , content = $content , terms = $terms , sequence = $sequence )"
     }
 }
 

@@ -31,8 +31,8 @@ data class FcmPush(
         var pushType: PushType = PushType.ADMIN,
 
         var title: String = "",
-        var msg: String = "",
-        var data: String = "",
+        var msg: String? = "",
+        var data: String? = "",
 
         @CreationTimestamp
         var createDate: LocalDateTime? = null,
