@@ -23,6 +23,7 @@ data class BootpayLog(
         var price: Int = 0,
         var receiptId: String = "",
         var orderId: String = "",
+        @Enumerated(EnumType.STRING)
         var type : BootpayType = BootpayType.BRIX,
         var name: String = "",
         var unit: String = "",
@@ -38,21 +39,4 @@ data class BootpayLog(
         var status: String? = null,
         @CreationTimestamp
         var createDate: LocalDateTime? = null
-){
-        fun toVbankDTO () : VbankDTO? {
-                val mapper = jacksonObjectMapper()
-                val data = mapper.readValue(paymentData, Map::class.java)
-                val localDateTime = stringToLocalDateTime(data.get("expiredate") as String)
-
-                if(localDateTime<LocalDateTime.now()){
-                        return null;
-                }
-                return VbankDTO(
-                        data.get("bankname") as String,
-                        data.get("accountholder") as String,
-                        getLocalDateTimeToVbank(localDateTime),
-                        data.get("account") as String,
-                        dotNumberStrNormal(price),
-                )
-        }
-}
+)

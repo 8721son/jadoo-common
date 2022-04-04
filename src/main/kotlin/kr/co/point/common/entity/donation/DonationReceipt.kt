@@ -1,5 +1,6 @@
 package kr.co.point.common.entity.donation
 
+import kr.co.point.common.dto.donation.v1.request.DonationReceiptDTO
 import kr.co.point.common.entity.member.Member
 import kr.co.point.common.enum_package.type.DonationReceiptType
 import org.hibernate.annotations.CreationTimestamp
@@ -24,8 +25,6 @@ data class DonationReceipt(
 
         var address: String = "",
         var detailAddress: String = "",
-
-        var brix: Int = 0,
 
         @CreationTimestamp
         var createDate: LocalDateTime = LocalDateTime.now(),

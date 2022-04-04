@@ -8,5 +8,4 @@ import java.util.*
 @Repository
 interface BootpayLogRepository: JpaRepository<BootpayLog, Int> {
     fun findTopByOrderId(order_id: String): Optional<BootpayLog>;
-    fun findByMember_EmailAndStatus(email: String, status: String) : List<BootpayLog>
 }

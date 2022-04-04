@@ -18,7 +18,7 @@ data class Pedometer(
     @JoinColumn(name = "member_idx", referencedColumnName = "idx")
     var member : Member = Member(),
 
-    var walk : Int = 0,
+    var remain : Int = 0,
 
     @CreationTimestamp
     var createDate : LocalDateTime = LocalDateTime.now(),
@@ -38,6 +38,7 @@ data class Pedometer(
 
     @Override
     override fun toString(): String {
-        return this::class.simpleName + "(idx = $idx , member = $member , walk = $walk , createDate = $createDate , updateDate = $updateDate )"
+        return this::class.simpleName + "(idx = $idx , member = $member , remain = $remain , createDate = $createDate , updateDate = $updateDate )"
     }
+
 }

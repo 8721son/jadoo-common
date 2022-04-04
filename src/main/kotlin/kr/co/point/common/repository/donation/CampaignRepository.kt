@@ -7,9 +7,12 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 import java.time.LocalDateTime
+import java.util.*
+import javax.swing.text.html.Option
 
 @Repository
 interface CampaignRepository : JpaRepository<Campaign, Int> {
+    fun findByIdx(idx : Int) : Optional<Campaign>
     fun findTop3By(): List<Campaign>
     fun findTop10ByEndDateGreaterThanEqual(endDate: LocalDateTime): List<Campaign>
     fun findByEndDateGreaterThanEqual(endDate: LocalDateTime, pageable: Pageable): Page<Campaign>

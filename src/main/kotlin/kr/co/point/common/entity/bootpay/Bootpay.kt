@@ -1,7 +1,12 @@
 package kr.co.point.common.entity.bootpay
 
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import kr.co.point.common.dto.bootpay.response.VbankDTO
 import kr.co.point.common.entity.member.Member
 import kr.co.point.common.enum_package.type.BootpayType
+import kr.co.point.common.util.dotNumberStrNormal
+import kr.co.point.common.util.getLocalDateTimeToVbank
+import kr.co.point.common.util.stringToLocalDateTime
 import org.hibernate.Hibernate
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
@@ -18,6 +23,7 @@ data class Bootpay(
         @JoinColumn(name = "member_idx", referencedColumnName = "idx")
         var member: Member = Member(),
 
+        @Enumerated(EnumType.STRING)
         var type : BootpayType = BootpayType.BRIX,
         var price: Int = 0,
         var receiptId: String = "",
@@ -40,5 +46,22 @@ data class Bootpay(
         @UpdateTimestamp
         var updateDate: LocalDateTime? = null,
 
-        var expiredDate: LocalDateTime? = null
-)
+        var expiredDate: String? = ""
+){
+        fun toVbankDTO () : VbankDTO? {
+                val mapper = jacksonObjectMapper()
+                val data = mapper.readValue(paymentData, Map::class.java)
+                val localDateTime = stringToLocalDateTime(data.get("expiredate") as String)
+
+                if(localDateTime<LocalDateTime.now()){
+                        return null;
+                }
+                return VbankDTO(
+                        data.get("bankname") as String,
+                        data.get("accountholder") as String,
+                        getLocalDateTimeToVbank(localDateTime),
+                        data.get("account") as String,
+                        dotNumberStrNormal(price),
+                )
+        }
+}

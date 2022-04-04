@@ -12,7 +12,7 @@ import javax.persistence.*
 
 data class PartnersProductDTO(
    var idx: Int? = null,
-   var partners : Partners = Partners(),
+   var partners : PartnersDTO = PartnersDTO(),
    var name : String = "",
    var thumbnail : FileDTO = FileDTO(),
    var maxChangeDay : Int = 0,

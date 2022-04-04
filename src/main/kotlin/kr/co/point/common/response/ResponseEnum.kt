@@ -2,6 +2,7 @@ package kr.co.point.common.response
 
 enum class ResponseEnum (var code: Int, var message: String?) {
     ERROR(0, "알 수 없는 오류입니다."),
+    VALIDATION_ERROR(-200, "유효성 체크 오류입니다."),
 
     QNA_LIST_SELECT_SUCCESS(200, "문의하기 리스트 조회가 완료되었습니다."),
     QNA_DETAIL_SELECT_SUCCESS(200, "문의하기 조회가 완료되었습니다."),
@@ -59,6 +60,8 @@ enum class ResponseEnum (var code: Int, var message: String?) {
     MEMBER_EDIT_BLACK_LIST(-300, "사용할 수 없는 닉네임입니다."),
     MEMBER_EDIT_FRIEND(200, "프렌드 변경에 성공했습니다."),
     MEMBER_EDIT_FRIEND_FAIL(-200, "프렌드 변경에 실패했습니다."),
+    MEMBER_ADD_ADDRESS_SUCCESS(200, "배송지 등록에 성공했습니다."),
+    MEMBER_ADD_ADDRESS_FAIL(-200, "배송지 등록에 실패했습니다."),
 
     MY_BANNER_LIST_SUCCESS(200, "배너 조회를 성공했습니다."),
     MD_LIST_SUCCESS(200, "MD 상품 조회를 성공했습니다."),
@@ -116,6 +119,10 @@ enum class ResponseEnum (var code: Int, var message: String?) {
     CAMPAIGN_SEARCH_SELECT_SUCCESS(200, "캠패인 검색이 완료되었습니다."),
     CAMPAIGN_DETAIL_SELECT_FAIL(-200, "캠패인 상세내역이 없습니다."),
     CAMPAIGN_CONTRIBUTOR_SELECT_SUCCESS(200, "후원자 목록 조회에 성공했습니다."),
+    DONATION_RECEIPT_SUCCESS(200, "기부 영수증 등록에 성공했습니다."),
+
+    DONATION_CERTIFICATE_SUCCESS(200, "인증 성공했습니다."),
+    DONATION_CERTIFICATE_FAIL(-200, "인증 실패했습니다."),
 
     CATEGORY_LIST_SELECT_SUCCESS(200, "카테고리 목록 조회에 성공했습니다."),
     RANK_SELECT_SUCCESS(200, "랭킹 조회에 성공했습니다."),
@@ -184,6 +191,7 @@ enum class ResponseEnum (var code: Int, var message: String?) {
     PARTNERS_LIKE_CANCEL_SUCCESS(200,"관심 등록 취소에 성공했습니다."),
     PARTNERS_LIKE_LIST_SUCCESS(200,"관심 파트너스 조회에 성공했습니다."),
     PARTNERS_CONFIRM_SUCCESS(200,"구매 확정에 성공했습니다."),
+    PARTNERS_PRODUCT_SELECT_SUCCESS(200,"상품 조회에 성공했습니다."),
 
     PARTNERS_MAIN_BANNER_SUCCESS(200,"파트너스 배너 조회에 성공했습니다."),
     PARTNERS_MAIN_CATEGORY_SUCCESS(200,"카테고리 조회에 성공했습니다."),
@@ -196,6 +204,12 @@ enum class ResponseEnum (var code: Int, var message: String?) {
 
     CRAWLING_FAIL(0, "크롤링을 실패했습니다."),
 
+    SHARE_SUCCESS(200, "공유하기를 성공했습니다."),
+
+    PEDOMETER_EXCHANGE_SUCCESS(200, "브릭스 적립에 성공했습니다."),
+    PEDOMETER_EXCHANGE_FAIL(-200, "광고 시청이 필요합니다."),
+    PEDOMETER_SAVE_SUCCESS(200, "잔여 횟수 갱신에 성공했습니다."),
+    PEDOMETER_SELECT_SUCCESS(200, "잔여 횟수 조회에 성공했습니다."),
     ADMOB_VERIFY_SUCCESS(200, "광고 시청 검증에 성공했습니다."),
     ADMOB_VERIFY_FAIL(-200, "광고 시청 검증에 실패했습니다."),
     ADMOB_FAIL_LOG_SUCCESS(200, "광고 실패 로그 저장에 성공했습니다.");

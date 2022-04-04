@@ -2,6 +2,7 @@ package kr.co.point.common.entity.partners
 
 import kr.co.point.common.dto.partners.response.MainProductDTO
 import kr.co.point.common.dto.partners.response.PartnersProductDTO
+import kr.co.point.common.dto.partners.response.PartnersProductDetailDTO
 import kr.co.point.common.entity.file.File
 import kr.co.point.common.util.dotNumberStrNormal
 import org.hibernate.Hibernate
@@ -40,10 +41,27 @@ data class PartnersProduct(
     @UpdateTimestamp
     var updateDate : LocalDateTime? = null,
 ){
+    fun toDetailDTO() : PartnersProductDetailDTO{
+        val percent : Double = (100-discountRate)/100.0
+        return PartnersProductDetailDTO(
+            idx,
+            partners.toDTO(),
+            name,
+            thumbnail.toDTO(),
+            dotNumberStrNormal(price),
+            dotNumberStrNormal(price * percent),
+            discountRate,
+            null,
+            null,
+            null,
+            null
+        )
+    }
+
     fun toDTO() : PartnersProductDTO{
         return PartnersProductDTO(
             idx,
-            partners,
+            partners.toDTO(),
             name,
             thumbnail.toDTO(),
             maxChangeDay,
