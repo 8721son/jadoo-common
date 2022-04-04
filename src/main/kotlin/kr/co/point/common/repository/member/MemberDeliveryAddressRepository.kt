@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface MemberDeliveryAddressRepository : JpaRepository<MemberDeliveryAddress, Int> {
+    fun findByMember_Email(email:String) : List<MemberDeliveryAddress>
 }

@@ -7,5 +7,5 @@ data class CategoryDTO (
     var idx: Int = 0,
     var name: String ="",
     var icon : FileDTO = FileDTO(),
-    var tags : MutableList<TagDTO> = ArrayList()
+    var tags : MutableList<TagDTO>? = null,
 )

@@ -62,6 +62,8 @@ enum class ResponseEnum (var code: Int, var message: String?) {
     MEMBER_EDIT_FRIEND_FAIL(-200, "프렌드 변경에 실패했습니다."),
     MEMBER_ADD_ADDRESS_SUCCESS(200, "배송지 등록에 성공했습니다."),
     MEMBER_ADD_ADDRESS_FAIL(-200, "배송지 등록에 실패했습니다."),
+    MEMBER_ADDRESS_LIST_SUCCESS(2200, "배송지 목록 조회에 성공했습니다."),
+    MEMBER_ADDRESS_LIST_FAIL(-200, "배송지 목록 조회에 실패했습니다."),
 
     MY_BANNER_LIST_SUCCESS(200, "배너 조회를 성공했습니다."),
     MD_LIST_SUCCESS(200, "MD 상품 조회를 성공했습니다."),

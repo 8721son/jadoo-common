@@ -16,4 +16,5 @@ interface PartnersLikeRepository : JpaRepository<PartnersLike, Int> {
     fun deleteByMember_IdxAndPartners_Idx(member_idx:Int,partners_idx:Int)
     fun findByMember_Idx(member_idx: Int,pageable: Pageable) : Page<PartnersLike>
     fun findByMember_IdxOrderByCreateDateDesc(member_idx: Int) : List<PartnersLike>
+    fun findByMember_IdxAndPartners_Idx(member_idx: Int,partners_idx: Int) : Optional<PartnersLike>
 }

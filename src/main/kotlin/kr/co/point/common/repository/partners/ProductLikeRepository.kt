@@ -18,5 +18,5 @@ interface ProductLikeRepository : JpaRepository<ProductLike, Int> {
     fun findByMember_IdxOrderByCreateDateDesc(member_idx : Int) : List<ProductLike>
     fun findByMember_IdxOrderByCreateDateDesc(member_idx : Int,pageable: Pageable) : Page<ProductLike>
     fun deleteByMember_IdxAndProduct_Idx(member_idx: Int,product_idx:Int)
-
+    fun findByMember_IdxAndProduct_Idx(member_idx: Int,product_idx: Int) : Optional<ProductLike>
 }

@@ -26,7 +26,7 @@ data class Category(
         var icon : File = File(),
 
         @OneToMany(mappedBy = "category", cascade = [CascadeType.ALL], orphanRemoval = true)
-        var tags : MutableList<CategoryTag> = ArrayList(),
+        var tags : MutableList<CategoryTag>? = null,
 
         @CreationTimestamp
         var createDate: LocalDateTime = LocalDateTime.now(),
@@ -35,7 +35,12 @@ data class Category(
         var updateDate: LocalDateTime? = null,
 ) {
         fun toCategoryDTO() : CategoryDTO{
-                return CategoryDTO(idx!!,category,icon.toDTO(),tags.stream().map { tag -> tag.toDTO() }.toList())
+                if(tags!=null){
+                        return CategoryDTO(idx!!,category,icon.toDTO(),tags!!.stream().map { tag -> tag.toDTO() }.toList())
+                }else{
+                        return CategoryDTO(idx!!,category,icon.toDTO(),null)
+                }
+
         }
 
 
