@@ -10,4 +10,5 @@ import java.util.*
 
 @Repository
 interface PartnersProductSaleOptionListRepository : JpaRepository<PartnersProductSaleOptionList, Int> {
+    fun findBySaleOption_Product_Idx(product_idx: Int) : List<PartnersProductSaleOptionList>
 }

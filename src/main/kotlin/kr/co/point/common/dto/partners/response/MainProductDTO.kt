@@ -9,4 +9,5 @@ data class MainProductDTO(
     var discountRate : Int = 0,
     var price : String = "",
     var isLike : Boolean = false,
+    var soldoutYn : String = "N"
 )

@@ -23,6 +23,8 @@ data class PartnersProductSaleOptionList(
 
     var name : String = "",
 
+    var stock : Int = 0,
+
     var showYn : String = "N",
 
     @CreationTimestamp
