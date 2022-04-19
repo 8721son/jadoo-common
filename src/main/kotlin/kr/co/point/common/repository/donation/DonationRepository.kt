@@ -12,4 +12,8 @@ import org.springframework.stereotype.Repository
 interface DonationRepository : JpaRepository<Donation, Int>{
     fun findByCampaign_Idx(campaign_idx : Int) : List<Donation>
     fun findByMember_Idx(member_idx : Int,pageable: Pageable) : Page<Donation>
+
+    fun findByMember_Idx(member_idx : Int) : List<Donation>
+
+    fun findDistinctByMember_Idx(member_idx : Int,pageable: Pageable) : Page<Donation>
 }

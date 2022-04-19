@@ -14,7 +14,7 @@ data class PartnerInsertDTO(
     var hp : String = "",
 
     @field:NotEmpty(message = "사업자명을 입력해주세요.")
-    var business_name : String = "",
+    var businessName : String = "",
 
     var companyRegistrationNumber : Int = 0,
 
@@ -24,3 +24,5 @@ data class PartnerInsertDTO(
     var description : String? = null,
     var status : MemberStatus = MemberStatus.NORMAL,
 )
+
+

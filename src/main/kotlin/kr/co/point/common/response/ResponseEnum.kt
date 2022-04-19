@@ -207,6 +207,7 @@ enum class ResponseEnum (var code: Int, var message: String?) {
     PARTNERS_MAIN_LIKE_PARTNERS_SUCCESS(200,"관심 파트너스 조회에 성공했습니다."),
     PARTNERS_CATEGORY_SEARCH_SUCCESS(200,"카테고리 조회에 성공했습니다."),
     PARTNERS_PRODUCT_SEARCH_SUCCESS(200,"파트너스 상품 조회에 성공했습니다."),
+    PARTNERS_SEARCH_COUPANG_SUCCESS(200,"검색 결과가 없습니다."),
 
     CRAWLING_FAIL(0, "크롤링을 실패했습니다."),
 
@@ -214,6 +215,8 @@ enum class ResponseEnum (var code: Int, var message: String?) {
 
     PEDOMETER_EXCHANGE_SUCCESS(200, "브릭스 적립에 성공했습니다."),
     PEDOMETER_EXCHANGE_FAIL(-200, "광고 시청이 필요합니다."),
+    BRIX_SELECT_SUCCESS(200, "잔여 브릭스 조회에 성공했습니다."),
+    PEDOMETER_NOT_REMAIN(-300, "잔여 횟수가 부족합니다."),
     PEDOMETER_SAVE_SUCCESS(200, "잔여 횟수 갱신에 성공했습니다."),
     PEDOMETER_SELECT_SUCCESS(200, "잔여 횟수 조회에 성공했습니다."),
     ADMOB_VERIFY_SUCCESS(200, "광고 시청 검증에 성공했습니다."),

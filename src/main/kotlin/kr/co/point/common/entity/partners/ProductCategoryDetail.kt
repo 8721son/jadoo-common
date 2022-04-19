@@ -2,6 +2,7 @@ package kr.co.point.common.entity.partners
 
 import kr.co.point.common.dto.partners.response.PartnersSearchCategoryDTO
 import kr.co.point.common.dto.partners.response.PartnersSearchCategoryDetailDTO
+import kr.co.point.common.entity.file.File
 import org.hibernate.Hibernate
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
@@ -21,6 +22,10 @@ data class ProductCategoryDetail(
     @JoinColumn(name = "category_code", referencedColumnName = "code")
     var category : ProductCategory = ProductCategory(),
 
+    @OneToOne(targetEntity = File::class)
+    @JoinColumn(name = "icon_idx", referencedColumnName = "idx")
+    var icon: File = File(),
+
     var showYn: String = "N",
 
     @CreationTimestamp
@@ -30,7 +35,7 @@ data class ProductCategoryDetail(
     var updateDate : LocalDateTime? = null,
 
 
-){
+    ){
     fun toSearchDTO() : PartnersSearchCategoryDTO{
         return PartnersSearchCategoryDTO(
             category.code!!,

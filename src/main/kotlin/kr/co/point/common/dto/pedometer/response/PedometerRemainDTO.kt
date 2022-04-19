@@ -5,5 +5,5 @@ import kr.co.point.common.entity.point.Point
 import kr.co.point.common.enum_package.type.PointType
 
 data class PedometerRemainDTO(
-    var reamin : Int = 0,
+    var remain : Int = 0,
  )

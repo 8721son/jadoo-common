@@ -3,7 +3,7 @@
   "component": {
     "group": "com.github.8721son",
     "module": "jadoo-common",
-    "version": "1.1.5",
+    "version": "1.1.6",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -27,13 +27,13 @@
       },
       "files": [
         {
-          "name": "jadoo-common-1.1.5.jar",
-          "url": "jadoo-common-1.1.5.jar",
-          "size": 907698,
-          "sha512": "b9b79e1c8c07a9226d6ca70ef79519114ebb66f9d193bb7f25838185975d42a42c02200b2b9232a84d0ddb1d4d120b433a7758d99d5ba1389fb0412f3b42ded3",
-          "sha256": "235eeb0bf9b975a34533570e055abab16aeedb940738a54c98b2c5a84c511377",
-          "sha1": "f6c8f79f9ca5eca0c5c88a3e25d007691657c58f",
-          "md5": "931d3709044c820a7419762899f32c1a"
+          "name": "jadoo-common-1.1.6.jar",
+          "url": "jadoo-common-1.1.6.jar",
+          "size": 932606,
+          "sha512": "84d74d4ab2e8cbe0b0c3e8aeb719c754b72fedbd366cd68df432120920a82617993e829bed4d61e203bd8e618de0004cc7053cf7f3f38d34576d9fd111dcf846",
+          "sha256": "391bb42f445c9a464368403ae46694f4173a1238db6f985b62d760d2024f6eb8",
+          "sha1": "edabb0ddbadf63cdce58fac93709c3e24576a634",
+          "md5": "5ef7ef8975e6c6029950f57eb8dd3cb0"
         }
       ]
     },
@@ -130,13 +130,13 @@
       ],
       "files": [
         {
-          "name": "jadoo-common-1.1.5.jar",
-          "url": "jadoo-common-1.1.5.jar",
-          "size": 907698,
-          "sha512": "b9b79e1c8c07a9226d6ca70ef79519114ebb66f9d193bb7f25838185975d42a42c02200b2b9232a84d0ddb1d4d120b433a7758d99d5ba1389fb0412f3b42ded3",
-          "sha256": "235eeb0bf9b975a34533570e055abab16aeedb940738a54c98b2c5a84c511377",
-          "sha1": "f6c8f79f9ca5eca0c5c88a3e25d007691657c58f",
-          "md5": "931d3709044c820a7419762899f32c1a"
+          "name": "jadoo-common-1.1.6.jar",
+          "url": "jadoo-common-1.1.6.jar",
+          "size": 932606,
+          "sha512": "84d74d4ab2e8cbe0b0c3e8aeb719c754b72fedbd366cd68df432120920a82617993e829bed4d61e203bd8e618de0004cc7053cf7f3f38d34576d9fd111dcf846",
+          "sha256": "391bb42f445c9a464368403ae46694f4173a1238db6f985b62d760d2024f6eb8",
+          "sha1": "edabb0ddbadf63cdce58fac93709c3e24576a634",
+          "md5": "5ef7ef8975e6c6029950f57eb8dd3cb0"
         }
       ]
     }

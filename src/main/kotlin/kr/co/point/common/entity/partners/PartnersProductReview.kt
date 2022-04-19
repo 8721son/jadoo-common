@@ -58,7 +58,7 @@ data class PartnersProductReview(
     fun toListDTO() : PartnersReviewListDTO {
         return PartnersReviewListDTO(
             idx!!,
-            member.idx,
+            member.idx!!,
             null,
             if(productImg!=null) productImg!!.toDTO() else null,
             review,

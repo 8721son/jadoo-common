@@ -14,6 +14,7 @@ import java.util.*
 interface PartnersProductReviewRepository : JpaRepository<PartnersProductReview, Int> {
     fun findByMember_idxAndPurchase_Idx(member_idx : Int, product_idx : Int) : Optional<PartnersProductReview>
     fun findByPurchase_Product_IdxAndDeleteYn(product_idx: Int,pageable : Pageable,deleteYn: String) : Page<PartnersProductReview>
+    fun findByPurchase_Product_IdxAndDeleteYnOrderByCreateDateDesc(product_idx: Int,deleteYn: String) : List<PartnersProductReview>
     fun findByMember_idxAndDeleteYn(member_idx: Int,deleteYn: String,pageable: Pageable) : Page<PartnersProductReview>
     fun findByIdxAndDeleteYn(review_idx: Int,deleteYn : String) : Optional<PartnersProductReview>
 }

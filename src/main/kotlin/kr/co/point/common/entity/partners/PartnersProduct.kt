@@ -28,6 +28,12 @@ data class PartnersProduct(
     @JoinColumn(name = "thumbnail_idx", referencedColumnName = "idx")
     var thumbnail : File = File(),
 
+    @OneToMany(mappedBy = "product", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var info : MutableList<PartnersProductOption>? = ArrayList(),
+
+    @OneToMany(mappedBy = "product", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var option : MutableList<PartnersProductSaleOption>? = ArrayList(),
+
     var maxChangeDay : Int = 0,
 
     var showYn : String = "N",
@@ -52,9 +58,15 @@ data class PartnersProduct(
             dotNumberStrNormal(price * percent),
             discountRate,
             null,
+            false,
+            "N",
+            0,
             null,
-            null,
-            null
+            if(info!=null) info!!.map { partnersProductOption -> partnersProductOption.toDTO() } else null,
+            if(option!=null)
+                option!!.map { partnersProductSaleOption -> partnersProductSaleOption.toDTO() }
+                .sortedBy { partnersProductOptionDTO -> partnersProductOptionDTO.sort }
+            else null
         )
     }
 

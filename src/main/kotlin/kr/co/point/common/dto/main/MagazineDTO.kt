@@ -14,13 +14,10 @@ data class MagazineDTO(
     var brand : String? = "",
     var title : String = "",
     var content : String = "",
-//    var campaign: CampaignDTO? = null,
-//    var foundation: FoundationDetailDTO? = null,
-//    var product: PartnersProductDTO? = null,
-//    var partners: PartnersDTO? = null,
     var showYn: String = "N",
     var type : MagazineType = MagazineType.CAMPAIGN,
     var jwtYn : String = "N",
     var pathVariable : Int? = 0,
 
-    )
+    var detail : MagazineDetailDTO = MagazineDetailDTO()
+)

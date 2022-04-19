@@ -1,5 +1,6 @@
 package kr.co.point.common.entity.partners
 
+import kr.co.point.common.dto.partners.response.PartnersProductInfoDTO
 import org.hibernate.Hibernate
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
@@ -28,6 +29,11 @@ data class PartnersProductOption(
     @UpdateTimestamp
     var updateDate : LocalDateTime? = null,
 ) {
+    fun toDTO() : PartnersProductInfoDTO{
+        return PartnersProductInfoDTO(
+            idx,name,value,showYn
+        )
+    }
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false

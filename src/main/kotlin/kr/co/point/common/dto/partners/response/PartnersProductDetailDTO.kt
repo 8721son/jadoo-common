@@ -24,11 +24,13 @@ data class PartnersProductDetailDTO(
 
    var detailImg : FileDTO? = FileDTO(),
 
+   var isLike : Boolean = false,
+   var soldoutYn : String = "N",
+
+   var reviewCnt : Int = 0,
    var review : List<PartnersReviewListDTO>? = ArrayList(),
 
-   // toDTO One To Many 할까말까
-   var info : List<PartnersProductOption>? = ArrayList(),
+   var info : List<PartnersProductInfoDTO>? = ArrayList(),
 
-   // toDTO (One To Many)
-   var option: List<PartnersProductSaleOption>? = ArrayList(),
+   var option: List<PartnersProductOptionDTO>? = ArrayList(),
 )

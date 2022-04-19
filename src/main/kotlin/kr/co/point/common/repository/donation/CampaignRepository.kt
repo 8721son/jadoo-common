@@ -1,6 +1,7 @@
 package kr.co.point.common.repository.donation
 
 import kr.co.point.common.entity.donation.Campaign
+import kr.co.point.common.entity.donation.Donation
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository

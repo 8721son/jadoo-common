@@ -7,4 +7,5 @@ import kr.co.point.common.enum_package.type.PointType
 data class PedometerExchangeResponseDTO(
     var adYn : String = "N",
     var brix : Int = 0,
+    var remain : Int = 0,
  )

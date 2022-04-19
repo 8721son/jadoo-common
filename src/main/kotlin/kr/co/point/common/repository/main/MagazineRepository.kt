@@ -10,5 +10,4 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface MagazineRepository : JpaRepository<Magazine, Int> {
-    fun findByType(type : MagazineType,pageable: Pageable) : Page<Magazine>
 }

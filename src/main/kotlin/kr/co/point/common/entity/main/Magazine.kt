@@ -1,11 +1,7 @@
 package kr.co.point.common.entity.main
 
 import kr.co.point.common.dto.main.MagazineDTO
-import kr.co.point.common.entity.donation.Campaign
-import kr.co.point.common.entity.donation.Foundation
 import kr.co.point.common.entity.file.File
-import kr.co.point.common.entity.partners.Partners
-import kr.co.point.common.entity.partners.PartnersProduct
 import kr.co.point.common.enum_package.type.MagazineType
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
@@ -26,26 +22,30 @@ data class Magazine(
     var title : String = "",
     var content : String = "",
 
-    @ManyToOne(targetEntity = Campaign::class)
-    @JoinColumn(name = "campaign_idx", referencedColumnName = "idx")
-    var campaign: Campaign? = null,
+    @OneToOne(targetEntity = MagazineDetail::class)
+    @JoinColumn(name = "detail_idx", referencedColumnName = "idx")
+    var magazineDetail: MagazineDetail = MagazineDetail(),
 
-    @ManyToOne(targetEntity = Foundation::class)
-    @JoinColumn(name = "foundation_idx", referencedColumnName = "idx")
-    var foundation: Foundation? = null,
-
-    @ManyToOne(targetEntity = PartnersProduct::class)
-    @JoinColumn(name = "product_idx", referencedColumnName = "idx")
-    var product: PartnersProduct? = null,
-
-    @ManyToOne(targetEntity = Partners::class)
-    @JoinColumn(name = "partners_idx", referencedColumnName = "idx")
-    var partners: Partners? = null,
+//    @ManyToOne(targetEntity = Campaign::class)
+//    @JoinColumn(name = "campaign_idx", referencedColumnName = "idx")
+//    var campaign: Campaign? = null,
+//
+//    @ManyToOne(targetEntity = Foundation::class)
+//    @JoinColumn(name = "foundation_idx", referencedColumnName = "idx")
+//    var foundation: Foundation? = null,
+//
+//    @ManyToOne(targetEntity = PartnersProduct::class)
+//    @JoinColumn(name = "product_idx", referencedColumnName = "idx")
+//    var product: PartnersProduct? = null,
+//
+//    @ManyToOne(targetEntity = Partners::class)
+//    @JoinColumn(name = "partners_idx", referencedColumnName = "idx")
+//    var partners: Partners? = null,
 
     var showYn: String = "N",
 
-    @Enumerated(EnumType.STRING)
-    var type : MagazineType = MagazineType.CAMPAIGN,
+//    @Enumerated(EnumType.STRING)
+//    var type : MagazineType = MagazineType.CAMPAIGN,
 
     @CreationTimestamp
     var createDate: LocalDateTime? = null,
@@ -58,20 +58,20 @@ data class Magazine(
         var type : MagazineType = MagazineType.CAMPAIGN
         var path : Int = 0
         var jwtYn : String = "N"
-        if(campaign!=null){
-            brand = campaign!!.company.name
-            type = MagazineType.CAMPAIGN
-            path = campaign!!.idx!!
-            jwtYn = "Y"
-        }else if(product!=null){
-            brand =product!!.partners.business_name
-            type = MagazineType.PRODUCT
-        }else if(foundation!=null){
-            type = MagazineType.FOUNDATION
-            path = foundation!!.idx!!
-        }else if(partners!=null){
-            type = MagazineType.PARTNERS
-        }
+//        if(campaign!=null){
+//            brand = campaign!!.company.name
+//            type = MagazineType.CAMPAIGN
+//            path = campaign!!.idx!!
+//            jwtYn = "Y"
+//        }else if(product!=null){
+//            brand =product!!.partners.business_name
+//            type = MagazineType.PRODUCT
+//        }else if(foundation!=null){
+//            type = MagazineType.FOUNDATION
+//            path = foundation!!.idx!!
+//        }else if(partners!=null){
+//            type = MagazineType.PARTNERS
+//        }
 
         return MagazineDTO(
             idx,
