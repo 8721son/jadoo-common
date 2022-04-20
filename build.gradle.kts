@@ -55,7 +55,7 @@ publishing {
     }
 }
 group = "com.github.8721son"
-version = "1.1.8"
+version = "1.1.9"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 val jar: Jar by tasks
